@@ -14,3 +14,15 @@ function merge(array1, array2) {
   }
   return mergedArray.concat(array1).concat(array2)
 }
+
+function mergeSort(array) {
+  let midpoint = array.length/2
+  let firstHalf = array.slice(0, midpoint)
+  let secondHalf = array.slice(midpoint)
+
+  if (array.length < 2) {
+    return array
+  } else {
+    return merge(mergeSort(firstHalf), mergeSort(secondHalf))
+  }
+}
